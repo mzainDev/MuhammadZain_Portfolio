@@ -52,7 +52,7 @@ const projects = [
     title: 'Pizza Portfolio',
     category: 'Portfolio Website',
     description:
-      'A modern portfolio website for a solar energy company, showcasing services and solutions with smooth animations, responsive design, and clean architecture using React and Framer Motion.',
+      'A modern portfolio website for a Pizza Shop, showcasing services and solutions with smooth animations, responsive design, and clean architecture using React and Framer Motion.',
     img: mockup5Img,
     tags: ['React', 'Framer Motion', 'Modern Design'],
   }
