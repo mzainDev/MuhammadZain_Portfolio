@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://muhammadzain.vercel.app/sitemap.xml
