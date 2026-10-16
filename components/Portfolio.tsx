@@ -1,0 +1,161 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import travelAgencyImg from '../assets/Travel Agency Landing Page UI.png';
+import mockup1Img from '../assets/mockup1.webp';
+import mockup5Img from '../assets/mockup5.webp';
+import mockup4Img from '../assets/mockup4.webp';
+import mockup3Img from '../assets/mockup3.webp';
+import coverImg from '../assets/Cover.png';
+
+const projects = [
+    {
+    title: 'Cyber Security - Cyber Complaince Automation',
+    category: 'Web Application',
+    description:
+      'A comprehensive Cyber Complaince Automation featuring AI-powered features, mutlti tenant architecture, intelligent search, and modern UI/UX design. Built with scalable architecture and optimized performance for navigating the digital landscape.',
+    img: coverImg,
+    tags: ['Next.js', 'AI Integration', 'UI/UX', 'Multi Tenant Architecture'],
+  },
+  {
+    title: 'AI ChatBot - Customer Support Platform',
+    category: 'Web Application',
+    description:
+      'Boost sales and support with an AI-powered chatbot platform. Features real-time messaging, intelligent automated responses, and seamless integration. Built with React and modern AI technologies for enhanced customer experience.',
+    img: mockup3Img,
+    tags: ['React', 'AI Integration', 'Real-time Chat'],
+  },
+  {
+    title: 'Longtail - Pet Memories Platform',
+    category: 'Web Application',
+    description:
+      'More Years, More Memories — a pet care platform focused on preserving and sharing pet memories. Features include pet profiles, memory albums, and community sharing. Built with React, featuring beautiful design and user-friendly interface.',
+    img: mockup4Img,
+    tags: ['React', 'Responsive Design', 'Modern UI'],
+  },
+  {
+    title: 'Travel Agency Landing Page',
+    category: 'Landing Page Design',
+    description:
+      'A modern, conversion-focused landing page for a travel agency featuring beautiful UI/UX design, responsive layout, and optimized performance using React and Tailwind CSS.',
+    img: travelAgencyImg,
+    tags: ['React', 'Tailwind CSS', 'Responsive Design'],
+  },
+  {
+    title: 'AI-Powered ChatBot Platform',
+    category: 'Web Application',
+    description:
+      'Boost sales and support with an AI-powered chatbot platform. Built with React and Next.js, featuring real-time messaging, intelligent responses, and seamless user experience for customer support automation.',
+    img: mockup1Img,
+    tags: ['React', 'Next.js', 'AI Integration'],
+  },
+  {
+    title: 'Pizza Portfolio',
+    category: 'Portfolio Website',
+    description:
+      'A modern portfolio website for a solar energy company, showcasing services and solutions with smooth animations, responsive design, and clean architecture using React and Framer Motion.',
+    img: mockup5Img,
+    tags: ['React', 'Framer Motion', 'Modern Design'],
+  }
+
+];
+
+const Portfolio: React.FC = () => {
+  return (
+    <section id="project" className="relative py-24 md:py-32 bg-white px-6 w-full">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
+            <p className="font-mono text-orange-primary text-xs uppercase tracking-[0.3em]">
+              Selected works
+            </p>
+            <h2 className="text-6xl md:text-[100px] font-black leading-[0.85] tracking-tighter">
+              Featured <br /> <span className="text-orange-primary italic">Projects</span>
+            </h2>
+          </motion.div>
+          <motion.a
+            href="https://github.com/mzainDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            className="bg-[#111111] text-white px-10 py-5 rounded-full font-black text-lg shadow-2xl transition-all"
+          >
+            View GitHub
+          </motion.a>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {projects.map((p, idx) => (
+            <motion.div
+              key={p.title}
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: idx * 0.08, duration: 0.7 }}
+              viewport={{ once: true }}
+              className="group flex flex-col"
+            >
+              <div className="relative aspect-[4/3] cursor-pointer overflow-hidden rounded-3xl bg-gray-50 border border-gray-100">
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full h-full object-cover object-center p-3 group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                />
+                <span className="absolute top-4 left-4 font-mono text-[11px] font-bold text-white bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <div className="mt-8 px-2 space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {p.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-black uppercase text-gray-400 bg-gray-50 px-3 py-1 rounded-full border border-gray-100"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-black text-[#111111] tracking-tight">
+                  {p.title}
+                </h3>
+                <p className="text-orange-primary font-bold text-sm uppercase tracking-widest">
+                  {p.category}
+                </p>
+                <p className="text-gray-500 text-base leading-relaxed">{p.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 text-center max-w-4xl mx-auto space-y-8 px-6 bg-gray-50 py-12 md:py-16 rounded-[48px]"
+        >
+          <h3 className="text-3xl md:text-5xl font-black text-[#111111] tracking-tighter leading-tight">
+            "I don't just write code, <br className="hidden md:block" />
+            I <span className="italic text-orange-primary">craft digital solutions</span>."
+          </h3>
+          <p className="text-gray-500 text-lg md:text-xl leading-relaxed">
+            My focus is on modular development, reusable components, and optimized performance. I
+            ensure your front-end is not only visually stunning but also lightning-fast and easy
+            to maintain.
+          </p>
+          <div className="flex justify-center">
+            <div className="h-1.5 w-24 bg-orange-primary rounded-full" />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Portfolio;
